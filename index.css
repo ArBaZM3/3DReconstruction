@@ -1,0 +1,142 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+
+.inp {
+  display: none;
+}
+
+.progressBar {
+  width: 250px;
+  background: rgb(228, 238, 255);
+  padding: 15px 20px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(75deg, rgb(171, 196, 245), rgb(11, 111, 204));
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.selectImage {
+  background-image: linear-gradient(144deg,#4089ce, #a4c9f5 50%,#baccec);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent images from wrapping to the next line */
+    overflow-x: auto; /* Add a horizontal scrollbar if images exceed the container width */
+
+    margin-right: 10px; /* Adjust margin between images */
+    max-width: 150px; /* Set a maximum width for each image (adjust as needed) */
+    max-height: 100px; /* Set a maximum height for each image (adjust as needed) */
+        /* NEW */
+        position:relative;
+        /* END */
+  }
+  
+
+
+.upload {
+  background-image: linear-gradient(144deg,#285ef1, #7583ff 50%,#adc8fa);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+      /* NEW */
+      
+        position:relative;
+      /* END */
+}
+
+/* New
+.homebtn{
+  position: relative;
+}
+ END */
+button {
+  cursor: pointer;
+  border: none;
+  margin: 10px 0;
+}
+
+.filedata {
+  background: cadetblue;
+  padding: 10px 15px;
+  font-size: 14px;
+  max-width: 100px;
+  text-overflow: ellipsis;
+  border-radius: 10px;
+  display: none;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.imageUpload {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30%;
+
+}
+
+body {
+  margin: 0px;
+	padding: 0px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.8;
+}
+
+.loading {
+  display: none;
+}
+
+.logo
+{
+	height: 40px;
+	width: 180px;
+	
+}
+
+.visual{  
+
+  
+  display: flex;
+  justify-content: center;
+      /* NEW */
+      
+        position:relative;
+  
+}
+.btnv{
+  background-image: linear-gradient(144deg,#393749, #354280 50%,#a2b0ff);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(184, 195, 255, 0.938) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reconstruction</title>
+    <link rel="stylesheet" href="./index.css" />
+    
+  </head>
+  <body>
+    <!--NEW-->
+    
+    <style>#bvid
+      {
+        /*height:119%; background: none; border: 0px; bottom: 0px; float: none; left: 0px; margin: 0px; padding: 0px; position: absolute; right: 0px; width: 100%;*/
+        position: absolute;
+        width: 100%;
+        height: max-content;
+      }
+      </style>
+
+      <!-- Navbar Starts
+<header>
+
+
+  <nav class="navbar navbar-expand-md navbar-light container-fluid" id="Header">
+      <a href="3D Reconstruction.html">
+          <img src="Q-IMG/1logo.jpg" class="logo"></a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>	
+      <div class="collapse navbar-collapse justify-content-center" id="Nav">	
+      <ul class="navbar-nav">
+        <li class="nav-item">
+                <a class="nav-link" href="#3D Reconstruction">3D Reconstruction</a>
+            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#About Our Project">About Our Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Features">Features</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="reconns/index.html">Reconnstruct</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="vision-mission.html">Vision & Mission</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+        </li>
+      </ul>
+    </div>
+    
+  </nav>
+  <br><br>
+  <nav class="social">
+    <div class="col-12">
+      <a href="#"><span class="fa fa-facebook"></span></a>
+      <a href="#"><span class="fa fa-twitter"></span></a>
+      <a href="#"><span class="fa fa-instagram"></span></a>
+      <a href="#"><span class="fa fa-youtube"></span></a>
+    </div>
+  </nav>
+  </header>
+    
+    
+  Navbar Ends -->
+
+  <div class="container">
+        <video id="bvid" autoplay muted loop id="myVideo">
+        
+          <source src="hpvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+      <!--END-->
+      <div style="position:relative;"><a href="3D Reconstruction.html">
+        <img src="Q-IMG/RoadGaugeArtboard 1.svg" class="logo"></a></div>
+    <div class="imageUpload">
+      <input type="file" class="inp" onchange="getImageData(event)" multiple />
+      <button onclick="selectImage()" class="selectImage">Dataset</button>
+      <div class="metaData"></div>
+      <div class="progressBar">
+        <div class="progress"></div>
+      </div>
+      <div style="padding-left: 10px;"><button onclick="uploadImage()" class="upload">Upload</button></div>
+      
+      <span class="completeMsg"></span>
+      <span class="loading">Loading...</span> 
+      <div class="images"></div>
+      </div>
+      <div class="visual"><button class="btnv" 
+        onclick="document.location='http://localhost/potree-develop/examples/viewern.html'"> PointCloud </button></div>
+
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+      <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyDkBgAPoyc5FCABQV0IHEaE2AovF-n64Qo",
+          authDomain: "upload-e2858.firebaseapp.com",
+          projectId: "upload-e2858",
+          storageBucket: "upload-e2858.appspot.com",
+          messagingSenderId: "684809171317",
+          appId: "1:684809171317:web:15dd128347349950bf633c"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the storage service, which is used to create references in your storage bucket
+        const storage = firebase.storage();
+
+        const inp = document.querySelector(".inp");
+        const progressbar = document.querySelector(".progress");
+        const img = document.querySelector(".img");
+        const body = document.querySelector("body");
+        const metaData = document.querySelector(".metaData");
+        const images = document.querySelector(".images");
+        const loading = document.querySelector(".loading");
+        const imageUpload = document.querySelector(".imageUpload");
+        const completeMsg = document.querySelector(".completeMsg");
+        let file;
+        let files;
+        let fileName;
+        let progress;
+        let uploadedFileName;
+
+        const selectImage = () => {
+          inp.click();
+        };
+
+        const getImageData = (e) => {
+          files = e.target.files;
+          for (let i = 0; i < files.length; i++) {
+            let imageData = document.createElement("span");
+            imageData.className = "filedata";
+            imageData.style.display = "block";
+            imageData.innerHTML = files[i].name;
+            metaData.appendChild(imageData);
+          }
+        };
+
+        const uploadImage = async () => {
+          for (let i = 0; i < files.length; i++) {
+            let url = await uploadProcess(
+              files[i],
+              Math.round(Math.random() * 9999) + files[i].name
+            );
+            if (url) {
+              loading.style.display = "none";
+              let image = document.createElement("img");
+              image.style.display = "block";
+              image.setAttribute("src", url);
+              image.className = "img";
+              images.appendChild(image);
+            }
+            if (i === files.length - 1) {
+              completeMsg.innerHTML = `${files.length} files uploaded successfully`;
+            }
+          }
+        };
+
+        const uploadProcess = (file, fileName) => {
+          return new Promise((resolve, reject) => {
+            const storageRef = storage.ref().child("myimages");
+            const folderRef = storageRef.child(fileName);
+            const uploadtask = folderRef.put(file);
+            uploadtask.on(
+              "state_changed",
+              (snapshot) => {
+                loading.style.display = "block";
+                progress =
+                  (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                progress = Math.round(progress);
+                progressbar.style.width = progress + "%";
+                progressbar.innerHTML = progress + "%";
+                uploadedFileName = snapshot.ref.name;
+              },
+              (error) => {
+                reject(error);
+              },
+              () => {
+                storage
+                  .ref("myimages")
+                  .child(uploadedFileName)
+                  .getDownloadURL()
+                  .then((url) => {
+                    console.log("URL", url);
+                    resolve(url);
+                  });
+              }
+            );
+          });
+        };
+      </script>
+    </div>
+  </body>
+</html>

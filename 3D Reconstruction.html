@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>3D Reconstruction</title>
+<link href="StyleSheet.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
+  <script src="jquerry/popper.js"></script>
+  <script src="jquerry/jquery.js"></script>
+  <script src="jquerry/bootstrap.min.js"></script>
+<link href="css/font-awesome.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	
+
+</head>
+<body>
+
+<!-- Navbar Starts -->	
+<header>
+
+
+	<nav class="navbar navbar-expand-md navbar-light container-fluid" id="Header">
+			<a href="3D Reconstruction.html">
+			<img src="Q-IMG/RoadGaugeArtboard 1.svg" class="logo"></a>
+	  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Nav">
+					  <span class="navbar-toggler-icon"></span>
+			  </button>	
+		  <div class="collapse navbar-collapse justify-content-center" id="Nav">	
+			<ul style="padding-left: 400px;" class="navbar-nav">
+			  <li class="nav-item">
+				  <a class="nav-link" href="3D Reconstruction.html">Home</a>
+			  </li>		  
+			  <li class="nav-item">
+					<a class="nav-link" href="about project.html">About Our Project</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="Projects.html">Projects</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="buttons.html">3D Reconnstruction</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="visionandmission.html">Vision & Mission</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="about.html">About Us</a>
+			  </li>
+			  <li style="padding-left: 400px;">
+				<a class="nav-link" href="https://console.firebase.google.com/project/upload-e2858/storage/upload-e2858.appspot.com/files/~2Fmyimages">Firebase</a>
+			  </li>
+			</ul>
+		</div>
+		
+	</nav>
+	<br><br>
+	<!--<nav class="social">
+		<div class="col-12">
+			<a href="#"><span class="fa fa-facebook"></span></a>
+			<a href="#"><span class="fa fa-twitter"></span></a>
+			<a href="#"><span class="fa fa-instagram"></span></a>
+			<a href="#"><span class="fa fa-youtube"></span></a>
+		</div>
+	</nav>-->
+	</header>
+		
+		
+	<!-- Navbar Ends -->
+<!-- Slider Starts -->
+
+<div class="carousel text-center" id="slides" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>
+	</ul>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="Q-IMG/q1.png" alt="..">
+			<div class="carousel-caption">
+				<!--<h1 class="display-2">PointClouds</h1>
+				<h3>3D Reconstruction</h3>-->
+			</div>	
+		</div>	
+		<div class="carousel-item">
+			<img src="Q-IMG/pt2.webp" alt="..">
+			<div class="carousel-caption">
+				<h1 class="display-2">PointClouds</h1>
+				<h3>Reconstruction</h3>
+			</div>
+		</div>	
+		<div class="carousel-item">
+			<img src="Q-IMG/pt3.webp" alt="..">
+			<div class="carousel-caption">
+				<h1 class="display-2">PointClouds</h1>
+				<h3>Reconstruction</h3>
+			</div>
+		</div>
+	</div>	
+</div>	
+
+<!-- Slider Ends -->
+
+
+<!-- Chairman Message -->
+
+<div class="container-fluid grey">
+	<h3 class="text-center">3D Reconstruction</h3>
+	<div class="row" style="padding-top: 50px;">
+		<div class="col-sm-12 col-md-6" align="justify">
+			<p>Data Acquisition: Gather input data such as images, depth maps, or point clouds captured by cameras or sensors.<br>
+				Feature Extraction: Identify key features in the input data that can be matched across different views.<br>
+				Correspondence Estimation: Establish correspondences between features in different views to reconstruct 3D geometry.<br>
+				Triangulation: Calculate the 3D positions of points in the scene by triangulating correspondences between image points and scene points.<br>
+				Camera Calibration: Determine camera parameters to accurately relate 2D image points to 3D world coordinates.<br>
+				Bundle Adjustment: Refine camera parameters and 3D point positions to minimize errors and improve accuracy.<br>
+				Surface Reconstruction: Generate a continuous surface representation, typically in the form of a mesh or point cloud, from the reconstructed 3D points.<br>
+				Texture Mapping: Apply color or texture information from input images onto the reconstructed surface to enhance visual realism.<br>
+				Post-Processing: Optionally, perform additional steps like noise reduction or mesh simplification to improve the quality of the reconstructed model.<br>
+				Visualization and Analysis: Visualize and analyze the reconstructed 3D model for various applications such as virtual reality, augmented reality, or scientific research.</p>
+		</div>
+		<div class="col-sm-12 col-md-6 text-center" style="padding-top: 100px;">
+			<figure>
+				<img style="width: 400px;" src="Q-IMG/q2.jpg" alt="Chairman">
+				<figcaption style="padding-top: 30px;">
+					<h3>2D to 3D Reconstruction</h3>
+					<p>“3D reconstruction is the process of generating a three-dimensional model of an object or scene from two-dimensional images or sensor data.”</p>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+
+<!-- parallex effect -->
+
+<div class="parallex1"></div>
+
+<!-- Services -->
+
+<div id="features" style="background-color: rgb(206, 203, 203);">
+	<div class="container" id="About Our Project"><br>
+		<h3 class="text-center" style="padding-bottom: 20px;">2D to 3D Reconstructing</h3>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<figure>
+					<img src="Q-IMG/frames.png" style="height: 233px; width:350px; border-radius: 50%;" class="img-fluid">
+					<figcaption>
+						<h3><b>Collecting of dataset</b></h3>
+						<p text-align="justify" align="left" >Using a mobile device to capture datasets for 2D to 3D reconstruction is an accessible and efficient approach. 
+							Mobile phones, equipped with advanced cameras and sensors, can capture multiple images of an object or scene from different angles. 
+							These images are then processed using photogrammetry techniques or deep learning models to reconstruct a 3D model. 
+							The convenience of mobile devices allows for quick and easy data collection, making it possible to create 3D models in various environments.
+							 This approach is widely used in applications like virtual reality, augmented reality, and 3D printing, where mobility and ease of use are crucial.
+							</p>
+					</figcaption>
+				</figure>
+	
+			</div>
+			<div class="col-sm-12 col-md-4">
+				<figure>
+					<img src="Q-IMG/f3.gif" style="height: 233px; width:350px; border-radius: 10%;" class="img-fluid">
+					<figcaption>
+						<h3><b>Processing</b></h3>
+						<p text-align="justify" align="left" >2D to 3D reconstruction is a process in computer vision that transforms flat, two-dimensional images into three-dimensional models. 
+							This technique leverages depth estimation, photogrammetry, and machine learning algorithms to infer the spatial structure of objects and scenes from 2D images.
+							 Applications of 2D to 3D reconstruction include creating virtual environments, enhancing augmented reality experiences, and reconstructing real-world objects for digital use in industries like gaming and architecture. 
+							 By converting 2D images into 3D models, it becomes possible to interact with and analyze objects in a more immersive and accurate manner.</p>
+					</figcaption>
+				</figure>
+			</div>
+			<div class="col-sm-12 col-md-4">
+				<figure>
+					<img src="Q-IMG/lookaround.gif" style="height: 233px; width:350px; border-radius: 20%;" class="img-fluid">
+					<figcaption>
+						<h3><b>Visualizing</b></h3>
+						<p text-align="justify" align="left" >Visualizing point clouds on a website enables interactive exploration of 3D data directly in a browser. 
+							By using WebGL and JavaScript libraries like Three.js or Potree, developers can render complex point clouds in real-time, allowing users to rotate, zoom, and inspect 3D models from any angle.
+							 This web-based visualization is crucial for fields like architecture, engineering, and geospatial analysis, where detailed 3D representations are needed. 
+							 Hosting point clouds online makes it easier to share and collaborate on 3D data, providing a platform for remote analysis, presentations, and education, all without the need for specialized software.</p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+<div class="container-fluid grey" style="padding-top: 100px;padding-bottom: 100px;">
+	<h2 class="text-center">Our team</h2><br><br>
+	<div class="row">
+		<div class="col-sm-12 col-md-3">
+			<figure>
+				<img src="Q-IMG/am.PNG" width="300" class="img-fluid">
+				<figcaption style="padding-top: 20px;">
+					<h5>Arbaz Moin</h5>
+					<p>2020F-BCE-111</p>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<figure>
+				<img src="Q-IMG/thk.PNG" width="300" class="img-fluid">
+				<figcaption style="padding-top: 20px;">
+					<h5>Talha Hussain Khan</h5>
+					<p>2020F-BCE-114</p>
+				</figccption>
+			</figure>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<figure>
+				<img src="Q-IMG/af.PNG" width="300" class="img-fluid">
+				<figcaption style="padding-top: 20px;">
+					<h5>Arisha Fateh</h5>
+					<p>2020F-BCE-117</p>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-sm-12 col-md-3">
+			<figure>
+				<img src="Q-IMG/ab.PNG" width="300" class="img-fluid">
+				<figcaption style="padding-top: 20px;">
+					<h5>Ahmad Baseer</h5>
+					<p>2020F-BCE-124</p>
+				</figcaption>
+			</figure>
+		</div>
+		
+	</div>
+</div>
+
+<!-- Footer Starts -->
+
+<footer class="black">
+	<div class="container">
+		<div class="row">
+			<div class="col-5 black">
+				<h4>Submit your email here</h4><br>
+				<p>By providing your email we will inform you the progress of 3D reconstruction.</p>
+				<input type="email" id="news-letter" placeholder="Enter Your Email...">
+				<input type="button" id="news-letter-btn" value="Submit">
+			</div>
+			<div class="col-2 black">
+				<h4>Our links</h4>
+				<style>a {color: white;} </style>
+					<a href="3D Reconstruction.html">Home</a><br>
+					<a href="about project.html">About Our Projet</a><br>
+					<a href="Projects.html">Projects</a><br>
+					<a href="buttons.html">3D Reconnstruction</a><br>
+					<a href="visionandmission.html">Vision & Mission</a><br>
+					<a href="about.html">About Us</a><br>
+					<a href="https://console.firebase.google.com/project/upload-e2858/storage/upload-e2858.appspot.com/files/~2Fmyimages">Firebase</a>
+			</div>
+			<div class="col-5 black">
+				<h4>Contact Us</h4>
+				<div class="col-12">
+					<a href="#"><span class="fa fa-facebook"></span></a>
+					<a href="#"><span class="fa fa-twitter"></span></a>
+					<a href="#"><span class="fa fa-instagram"></span></a>
+					<a href="#"><span class="fa fa-youtube"></span></a>
+				</div>
+				<p><span class="fa fa-location-arrow"></span> Unit 3B Berwick Rd, Wooler NE71 6AH, United Kingdom</p>
+					<a href="mailto:example@excellent.com"><span class="fa fa-envelope"></span> Road@Gauge.com</a>
+				<p><span class="fa fa-phone"></span> +44 1665 576271</p>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container-fluid" id="rights">
+	<p class="text-center"> &copy; RoadGauge 2024 <!--©--></p>
+</div>
+
+<!-- Footer Ends -->
+
+
+</body>
+</html>

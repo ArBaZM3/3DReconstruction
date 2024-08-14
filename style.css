@@ -514,7 +514,7 @@ width:100%;
   
   .flip-card-front {
 	/*background: linear-gradient(to left, #001aff, #ffffff, #ffee00, #00f7ff, #001aff);*/
-	background: linear-gradient(to left, #92c6f7, #00f7ff);
+	background: linear-gradient(to left, #6794be, #01c8cf);
 	color: black;
 	z-index: 2;
 	display: flex;

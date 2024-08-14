@@ -33,7 +33,6 @@
   color: white;
   padding: 15px 20px;
   border-radius: 10px;
-    display: flex;
     flex-wrap: nowrap; /* Prevent images from wrapping to the next line */
     overflow-x: auto; /* Add a horizontal scrollbar if images exceed the container width */
 
@@ -70,7 +69,7 @@ button {
 }
 
 .filedata {
-  background: cadetblue;
+  background: rgb(90, 140, 247);
   padding: 10px 15px;
   font-size: 14px;
   max-width: 100px;
@@ -79,6 +78,7 @@ button {
   display: none;
   overflow: hidden;
   margin: 10px 0;
+  margin-right: 10px;
 }
 
 .imageUpload {
@@ -87,7 +87,7 @@ button {
   justify-content: center;
   align-items: center;
   padding-top: 30%;
-
+  position: relative;
 }
 
 body {
@@ -99,6 +99,12 @@ body {
 
 .loading {
   display: none;
+  color: white;
+}
+
+.completeMsg
+{
+  color: white;
 }
 
 .logo

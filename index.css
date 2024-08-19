@@ -128,6 +128,28 @@ body {
   background-image: linear-gradient(144deg,#393749, #354280 50%,#a2b0ff);
   border: 0;
   border-radius: 8px;
+  box-shadow: rgba(255, 252, 101, 0.329) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btnvrp{
+  background-image: linear-gradient(144deg,#393749, #354280 50%,#a2b0ff);
+  border: 0;
+  border-radius: 8px;
   box-shadow: rgba(184, 195, 255, 0.938) 0 15px 30px -5px;
   box-sizing: border-box;
   color: #FFFFFF;

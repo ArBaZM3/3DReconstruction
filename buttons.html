@@ -93,14 +93,13 @@
       <span class="loading">Loading...</span> 
       <div class="images"></div>
       </div>
-      <div class="visual"><button class="btnv" 
-        onclick="document.location='http://localhost/potree/nd3/newdata3.html'"> PointCloud </button></div>
-<!--New-->
-        <form id="uploadForm" style="position: relative;">
-          <input type="file" id="fileInput" />
-          <input type="submit" value="Upload">
-      </form>
-<!--End-->
+      <div class="visual">
+        <button class="btnv" onclick="document.location='http://localhost/potree/Vdata/VisualData.html'"> PointCloud </button>
+        <button class="btnv" onclick="document.location='file:///A:/GitHub%20Uploads/3DReconstruction/reports.html'"> Generate Reports </button>
+      </div>
+      <div class="visual">
+      <button class="btnvrp" style="position: relative;" onclick="document.location='https://console.firebase.google.com/project/upload-e2858/storage/upload-e2858.appspot.com/files'"> Check Reports </button>
+    </div>
       <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
       <script>
@@ -120,6 +119,7 @@
         const storage = firebase.storage();
 
         const inp = document.querySelector(".inp");
+        const vr = document.querySelector(".vr");
         const progressbar = document.querySelector(".progress");
         const img = document.querySelector(".img");
         const body = document.querySelector("body");
@@ -157,14 +157,14 @@
             );
             if (url) {
               loading.style.display = "none";
-              let image = document.createElement("img");
+              /*let image = document.createElement("img");
               image.style.display = "block";
               image.setAttribute("src", url);
               image.className = "img";
-              images.appendChild(image);
+              images.appendChild(image);*/
             }
             if (i === files.length - 1) {
-              completeMsg.innerHTML = `${files.length} files uploaded successfully`;
+              completeMsg.innerHTML = `${files.length} file uploaded successfully!`;
             }
           }
         };
@@ -174,6 +174,26 @@
             const storageRef = storage.ref().child("myimages");
             const folderRef = storageRef.child(fileName);
             const uploadtask = folderRef.put(file);
+/* NEW */
+            const randomNumber = Math.floor(Math.random() * 1000000);
+                const folderPath = `Your ID:${randomNumber}/`;
+                // You can change this to your desired folder structure
+                const filePath = folderPath + file.name; // Combine folder path with the file name
+
+                // Create a reference to the file location in Firebase Storage
+                const fileRef = storage.ref(filePath);
+
+                if(file){
+                  fileRef.put(file).then(() => {
+                    console.log('File uploaded successfully!');
+                    alert('File uploaded successfully! \nYour File ID: '+randomNumber+'\n'+ 'Check Reports after sometimes, the 3D Reconstruction is being underprocess.. ');
+                }).catch(error => {
+                    console.error('File upload failed:', error);
+                    alert('File upload failed!');
+                });
+                }
+/* END */
+
             uploadtask.on(
               "state_changed",
               (snapshot) => {
@@ -201,7 +221,7 @@
             );
           });
         };
-/* NEW */
+/* NEW
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
 
@@ -228,7 +248,7 @@
             } else {
                 alert('Please select a file to upload.');
             }
-        });
+        });*/
       </script>
     </div>
   </body>
